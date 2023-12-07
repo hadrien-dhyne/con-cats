@@ -1,3 +1,3 @@
 <?php
-header('Location: psignin.php');exit;
+header('Location: plogin.php');exit;
 ?>
