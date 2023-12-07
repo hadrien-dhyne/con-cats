@@ -14,7 +14,7 @@ session_start();
             
             <div class="col-md-6 mx-auto my-auto; ; shadow-sm p-3 mb-5 bg-body-tertiary rounded; rounded">
 
-            <h1 class="title_blue">Welcome user</h1>
+            <h1 class="title_blue">Welcome tp Con-Cats "user"</h1>
 
             </div>
     

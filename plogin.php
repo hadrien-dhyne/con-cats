@@ -1,5 +1,5 @@
 <?php
-$title = "Sign in";
+$title = "Log in";
 include ('header.php');
 session_start();
 ?>
@@ -12,7 +12,7 @@ session_start();
             
             <div class="col-md-6 mx-auto my-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                 
-                <h1 class="title_blue">Sign In</h1>
+                <h1 class="title_blue">Log In</h1>
 
                 <form>
 
@@ -30,8 +30,8 @@ session_start();
                         
                         <img src="./assets/images/logo_sign_up_flip.png" alt="logo sign in">
                         
-                            <div class="block_sign_in">
-                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            <div class="block_log_in">
+                            <button type="submit" class="btn btn-primary">Log in</button>
                                 <a href="psignup.php" class="link-underline-primary">Don't have an account? Sign up here!</a>
                             </div>
 

@@ -1,6 +1,7 @@
 <?php
 $title = "Sign up";
 include ('header.php');
+include ('admin/admin-requestSQL.php');
 session_start();
 ?>
 
@@ -61,14 +62,14 @@ session_start();
 </div>
 
           <?php
-          if(isset($SESSION['contacts'])){ ?>
+          if(isset($SESSION['user'])){ ?>
           <button type="submit" class="btn btn-primary" name="bUpdate">Update</button>
           <?php 
           }
           else{?>
           <a href="psignin.php"><button type="submit" class="btn btn-primary" name="bSignUp">Sign up</button></a>
          <?php }?><div> 
-          <a href="psignin.php" class="link-underline-primary">Already have an account?</a>
+          <a href="plogin.php" class="link-underline-primary">Already have an account?</a>
         </div>
         </form>
 

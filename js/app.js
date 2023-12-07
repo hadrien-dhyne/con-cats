@@ -90,28 +90,42 @@ function togglePasswordVisibility() {
     passwordField.type = checkbox.checked || generatedPassword ? "text" : "password";
     repeatPasswordField.type = checkbox.checked && generatedPassword ? "text" : "password";
 }
-document.addEventListener('DOMContentLoaded', function() {
-    const showFormBtn = document.getElementById('showFormBtn');
-    const formContainer = document.getElementById('formContainer');
-    const backgroundOverlay = document.getElementById('backgroundOverlay');
 
-    showFormBtn.addEventListener('click', function() {
-      formContainer.classList.toggle('d-none');
-      backgroundOverlay.classList.toggle('overlay-active');
-    });
-  });
-  
-  document.addEventListener('DOMContentLoaded', function() {
+function toggleForm() {
+    var form = document.getElementById('contactForm');
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var welcomeOverlay = document.querySelector(".welcome-overlay");
+
+    // Show the overlay
+    welcomeOverlay.style.opacity = 1;
+
+    // Hide the overlay after 3 seconds
     setTimeout(function() {
-        document.getElementById('welcomeOverlay').classList.add('overlay-hidden');
+        hideOverlay();
     }, 3000);
 
-    const showFormBtn = document.getElementById('showFormBtn');
-    const formContainer = document.getElementById('formContainer');
-    const backgroundOverlay = document.getElementById('backgroundOverlay');
-
-    showFormBtn.addEventListener('click', function() {
-        formContainer.classList.toggle('d-none');
-        backgroundOverlay.classList.toggle('overlay-active');
+    // Hide the overlay on click
+    welcomeOverlay.addEventListener("click", function() {
+        hideOverlay();
     });
+
+    // Prevent form submission
+    var contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+    });
+
+    function hideOverlay() {
+        welcomeOverlay.style.opacity = 0;
+        setTimeout(function() {
+            welcomeOverlay.style.display = "none";
+        }, 500); // Wait for the transition to complete
+    }
 });

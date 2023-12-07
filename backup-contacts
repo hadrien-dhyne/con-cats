@@ -5,20 +5,15 @@ session_start();
 ?>
 
 
-<body class="d-flex align-items-center justify-content-center welcome-body">
+<body class="d-flex align-items-center justify-content-center">
     
-<div class="welcome-overlay">
-    Welcome "user"
-</div>
-
-
     <div class="container">
     
     
         <div class="row">
             
         <div class="col-md-6 mx-auto my-auto; ; shadow-sm p-3 mb-5 bg-body-tertiary rounded; rounded">
-        <h1 class="title_blue">Con-Cats</h1>
+        <h1 class="title_blue">Contacts</h1>
        
 <button class="btn btn-primary" onclick="toggleForm()">Add contact</button>
 
@@ -55,7 +50,6 @@ session_start();
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Birthday</th>
                     </tr>
                 </thead>
                 
@@ -63,43 +57,28 @@ session_start();
                 
                     <tr>
                         <th scope="row">1</th>
-                        <td>Emmanuelle</td>
-                        <td>Ntsama</td>
-                        <td>+32495346294</td>
-                        <td>26/12/2003</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
                     </tr>
 
                     <tr>
-                    <th scope="row">2</th>
-                        <td>Emmanuelle</td>
-                        <td>Ntsama</td>
-                        <td>+32495346294</td>
-                        <td>26/12/2003</td>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
                     </tr>
                 
                     <tr>
                         <th scope="row">3</th>
-                        <td>Emmanuelle</td>
-                        <td>Ntsama</td>
-                        <td>+32495346294</td>
-                        <td>26/12/2003</td>
-                    </tr>
-                    
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Hadrien</td>
-                        <td>Dhyne</td>
-                        <td>+32495346294</td>
-                        <td>28/09/1999</td>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
                     </tr>
 
                 </tbody>
             </table>
 
             <img src="assets/images/logo_contacts_bottom.png" alt="meow">
-            <div class="d-flex justify-content-end">
-                    <a href="plogin.php" class="link-underline-primary">Logout</a>
-                </div>
             </div>
         </div>
     </div>

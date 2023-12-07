@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Nov 26, 2023 at 04:19 PM
+-- Generation Time: Dec 07, 2023 at 02:23 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `idc` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
+  `namec` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `firstnamec` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `phone_number` varchar(11) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `birthday` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idc`),
   KEY `fk_contacts_user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -48,10 +48,11 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `birthdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
