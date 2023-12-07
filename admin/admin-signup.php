@@ -24,19 +24,19 @@ if(isset($_POST['bSignUp']) || isset($_POST['bUpdate'])){
     if($password === $password_repeat){
         //$message = "Les mots de passes correspondent.";
         if(isset($_POST['bUpdate'])){
-            $message = userUpdate($id,$nom,$prenom,$fonction,$dateDeNaissance,$username,$password1);
+            $message = userUpdate($id,$name,$firstname,$birthdate,$email,$username,$password);
         }else{
-            $message = insertdata($nom,$prenom,$fonction,$dateDeNaissance,$username,$password1);
+            $message = insertdata($name,$firstname,$birthdate,$email,$username,$password);
         }
         
         if(isset($_SESSION['user_id'])){
-            header('Location: ../paccueil.php?message='.$message);
+            header('Location: ../phome.php?message='.$message);
         }else{
-            header('Location: ../pconnexion.php?message='.$message);
+            header('Location: ../psignin.php?message='.$message);
         }exit;
         
     }else{
-        $message = "Les mots de passes ne correspondent pas.";
+        $message = "Passwords dont match. Please try again.";
     }
     echo $message;
 }

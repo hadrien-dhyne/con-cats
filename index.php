@@ -1,5 +1,3 @@
 <?php
-$title = "Sign up";
-include ('header.php');
-session_start();
+header('Location: psignin.php');exit;
 ?>
