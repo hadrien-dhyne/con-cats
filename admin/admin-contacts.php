@@ -56,6 +56,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+
+if (isset($_GET['action']) && isset($_GET['id'])) {
+    try {
+    $contact_id = $_GET['id'];
+
+    // Préparer la requête SQL pour supprimer le contact
+    $sql = "DELETE FROM contacts WHERE idc = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("i", $contact_id);
+
+    // Exécuter la requête
+    if ($stmt->execute()) {
+        // Rediriger l'utilisateur vers la page des contacts
+        header('Location: ../pcontacts.php');
+        exit;
+    } else {
+        echo "Couldnt delete contact.";
+    }
+    
+    $stmt->close();
+    
+    exit();
+}
+catch (\Exception $e) {
+    // Afficher les erreurs qui se produisent pendant le processus
+    echo "Erreur: " . $e->getMessage();
+    exit();
+}
+}
+
+else{
 
 $user_id = $_SESSION['id'];
 
@@ -85,5 +118,5 @@ $contacts = $stmt->get_result();
 // Fermer la déclaration
 $stmt->close();
 
-
+}
 ?>
