@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function validateForm() {
         let isValid = true;
 
-        // Reset styles and remove previous error messages
+         
         resetStyles();
 
-        // Check each input field
+         
         const fields = [
             { id: 'name', message: 'Please fill in your name' },
             { id: 'firstname', message: 'Please fill in your first name' },
@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
         errorDiv.className = 'alert alert-danger';
         errorDiv.textContent = message;
 
-        // Add a red border to the input field
+         
         element.classList.add('is-invalid');
 
-        // Insert the error message after the input field
+         
         element.parentNode.appendChild(errorDiv);
     }
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-var generatedPassword = false; // Variable pour suivre si le mot de passe a été généré automatiquement
+var generatedPassword = false;  
 
 function generatePassword() {
     var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()";
@@ -75,11 +75,11 @@ function generatePassword() {
     
 
     document.getElementById("password").value = password;
-    document.getElementById("password").type = "text"; // change le type du champ de mot de passe à texte
-    document.getElementById("generatePasswordBtn").disabled = false; // réactive le bouton après la génération
-    document.getElementById("password_repeat").value = password; // remplit automatiquement le champ de répétition du mot de passe
-    document.getElementById("password_repeat").type = "text"; // rend visible le champ de répétition du mot de passe
-    generatedPassword = true; // indique que le mot de passe a été généré automatiquement
+    document.getElementById("password").type = "text";  
+    document.getElementById("generatePasswordBtn").disabled = false;  
+    document.getElementById("password_repeat").value = password;  
+    document.getElementById("password_repeat").type = "text";  
+    generatedPassword = true;  
 }
 
 function togglePasswordVisibility() {
@@ -103,20 +103,20 @@ function toggleForm() {
 document.addEventListener("DOMContentLoaded", function() {
     var welcomeOverlay = document.querySelector(".welcome-overlay");
 
-    // Show the overlay
+     
     welcomeOverlay.style.opacity = 1;
 
-    // Hide the overlay after 3 seconds
+     
     setTimeout(function() {
         hideOverlay();
     }, 3000);
 
-    // Hide the overlay on click
+     
     welcomeOverlay.addEventListener("click", function() {
         hideOverlay();
     });
 
-    // Prevent form submission
+     
     var contactForm = document.getElementById("contactForm");
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -126,6 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
         welcomeOverlay.style.opacity = 0;
         setTimeout(function() {
             welcomeOverlay.style.display = "none";
-        }, 500); // Wait for the transition to complete
+        }, 500);  
     }
 });

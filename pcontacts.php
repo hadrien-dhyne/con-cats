@@ -29,7 +29,7 @@ if (isset($_SESSION['id'])) {
                 
                   
 <form method="POST" action="admin/admin-contacts.php">  
-    <!-- <//?php if(isset($_SESSION['contacts'])){ ?><input type="hidden" name="user-id" value="<//?php echo $_SESSION['contacts']['user'];?>"><//?php }?> -->
+    
 
     <div class="mb-3">
         <label for="firstnamec" class="form-label">First name</label>
@@ -76,7 +76,6 @@ if (isset($_SESSION['id'])) {
                 <tbody>
                 
                 <?php
-        // Afficher les contacts dans le tableau
         foreach ($contacts as $contacts):?>
          <tr>
             <th scope='row'></th>

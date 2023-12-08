@@ -27,7 +27,7 @@ $stmt->bind_param("ssssss", $name, $firstname, $birthdate, $email, $username, $h
         header("Location: ../plogin.php");
         exit();
         } else {
-            // Stocker le message d'erreur dans une variable de session
+             
             session_start();
             $_SESSION['error_passwords'] = "Passwords don't match";
             header("Location: ../psignup.php");
