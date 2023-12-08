@@ -12,7 +12,13 @@ session_start();
       <div class="col-md-6 mx-auto my-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
         
         <h1 class="title_blue">Sign Up</h1>
-        <!-- essayer d'ajouter l'image -->
+        
+        <?php if (isset($_SESSION['error_passwords'])) {
+     echo '<div style="border: 1px solid red; padding: 10px; margin-bottom: 10px; color: red;">' . $_SESSION['error_passwords'] . '</div>';
+    unset($_SESSION['error_passwords']); 
+}
+?>
+        
         <form method="POST" action="admin/admin-signup.php">
         <?php if(isset($_SESSION['contacts'])){ ?><input type="hidden" name="user-id" value="<?php echo $_SESSION['contacts']['user'];?>"><?php }?>
           
@@ -57,17 +63,11 @@ session_start();
 
 <div class="mb-3">
     <label for="password_repeat" class="form-label">Repeat your password</label>
-    <input type="password" class="form-control" id="password_repeat">
+    <input type="password" class="form-control" id="password_repeat" name="password_repeat">
 </div>
 
-          <?php
-          if(isset($SESSION['user'])){ ?>
-          <button type="submit" class="btn btn-primary" name="bUpdate">Update</button>
-          <?php 
-          }
-          else{?>
-          <a href="psignin.php"><button type="submit" class="btn btn-primary" name="bSignUp">Sign up</button></a>
-         <?php }?><div> 
+          <a href="plogin.php"><button type="submit" class="btn btn-primary" name="bSignUp">Sign up</button></a>
+         <div> 
           <a href="plogin.php" class="link-underline-primary">Already have an account?</a>
         </div>
         </form>
