@@ -1,23 +1,32 @@
 <?php
 $title = "Sign up";
-include ('header.php');
+include('header.php');
 session_start();
+
+$errorPasswords = isset($_SESSION['error_passwords']) ? $_SESSION['error_passwords'] : '';
+unset($_SESSION['error_passwords']); // Supprimer la variable de session
+
+$errorUsername = isset($_SESSION['error_username']) ? $_SESSION['error_username'] : '';
+unset($_SESSION['error_username']); // Supprimer la variable de session
 ?>
 
 <body class="d-flex align-items-center justify-content-center" style="margin-top: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto my-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                <h1 class="title_blue">Sign Up</h1>
 
-  <div class="container">
+                <?php if (!empty($errorPasswords)) : ?>
+                    <div style="border: 1px solid red; padding: 10px; margin-bottom: 10px; color: red;">
+                        <?= $errorPasswords ?>
+                    </div>
+                <?php endif; ?>
 
-    <div class="row">
-      <div class="col-md-6 mx-auto my-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-        
-        <h1 class="title_blue">Sign Up</h1>
-        
-        <?php if (isset($_SESSION['error_passwords'])) {
-     echo '<div style="border: 1px solid red; padding: 10px; margin-bottom: 10px; color: red;">' . $_SESSION['error_passwords'] . '</div>';
-    unset($_SESSION['error_passwords']); 
-}
-?>
+                <?php if (!empty($errorUsername)) : ?>
+                    <div style="border: 1px solid red; padding: 10px; margin-bottom: 10px; color: red;">
+                        <?= $errorUsername ?>
+                    </div>
+                <?php endif; ?>
         
         <form method="POST" action="admin/admin-signup.php">
         <?php if(isset($_SESSION['contacts'])){ ?><input type="hidden" name="user-id" value="<?php echo $_SESSION['contacts']['user'];?>"><?php }?>

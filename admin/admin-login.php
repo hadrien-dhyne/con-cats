@@ -21,23 +21,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              
             $user = $result->fetch_assoc();
 
-             
+            //  on verifie que les mots de passe correspondent
             if (password_verify($password, $user['password'])) {
                  
                  
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['id'] = $user['id'];
-                 
+                //  si les identifiants correspondent on envoie vers la page contacts
                 header("Location: ../pcontacts.php");
                 exit();
-            } else {
-                 
+            } 
+            // si les identifiants ne correspondent pas 
+            else {
+                //  si c'est le mdp qui ne correspond pas ...
                 $_SESSION['error_login_password'] = "Incorrect password";
                 header("Location: ../plogin.php");
                 exit();
             }
         }  else {
-             
+             //  si c'est l'utilisateur qui ne correspond pas ...
             $_SESSION['error_login_user'] = "User not found";
             header("Location: ../plogin.php");
             exit();
